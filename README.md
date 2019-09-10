@@ -1,4 +1,4 @@
 ## zpr-finances
 
 
-HELLO!!!!!
+#How to use
