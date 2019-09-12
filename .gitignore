@@ -7,3 +7,4 @@ api/build/
 front-end/node_modules
 front-end/.DS_Store
 front-end/dist
+front-end/workspace.xml
