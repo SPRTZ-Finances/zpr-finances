@@ -4,7 +4,9 @@ api/.gradle
 api/build/
 
 ### front-end ###
-front-end/node_modules
-front-end/.DS_Store
-front-end/dist
-front-end/workspace.xml
+frontend/node_modules
+frontend/.DS_Store
+frontend/dist
+frontend/workspace.xml
+frontend/.babelrc
+frontend/.idea
