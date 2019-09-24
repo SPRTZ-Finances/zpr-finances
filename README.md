@@ -10,3 +10,10 @@
 
 ## Back-end (api/)
 
+1. Following tutorial was used to come up with initial REST api
+`https://codebrains.io/build-a-crud-todolist-api-with-spring-5-and-kotlin/`
+
+2. Postgres was installed separately (from `postgres.org`)
+
+3. The flyway tool was used for data migration
+
