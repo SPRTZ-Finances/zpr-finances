@@ -15,5 +15,39 @@
 
 2. Postgres was installed separately (from `postgres.org`)
 
+    - Install using brew
+
+    `brew install postgresql`
+
+    - Start postgres locally
+
+    `brew services start postgresql`
+    
+    - WHAT ZACH DID LOCALLY
+    
+    - In one terminal
+    
+    `psql postgres`
+    
+    - To see what your root user is
+        
+    `\du`
+    
+    - In another terminal
+    
+    `sudo su - postgres` I THINK
+    
+    `createuser --interactive --pwprompt`
+    
+    - Say yes to superuser and just do `user` for the user name and `123456` for password
+    
+    - Add user to DB
+    
+    `createdb -O user zprfinance`
+
 3. The flyway tool was used for data migration
+
+- to migrate 
+
+`./gradlew flywaymigrate -i` I THINK
 

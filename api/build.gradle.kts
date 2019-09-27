@@ -37,7 +37,7 @@ tasks.withType<KotlinCompile> {
 
 flyway {
   url = "jdbc:postgresql://localhost:5432/zprfinance"
-  user = "postgres"
-  password = ""
+  user = "user"
+  password = "123456"
   outOfOrder = true
 }
