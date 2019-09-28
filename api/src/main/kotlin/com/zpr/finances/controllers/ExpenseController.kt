@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.util.*
 
+@CrossOrigin
 @RestController
 @RequestMapping("/expenses")
 class ExpenseController(val expenseRepository: ExpenseRepository) {
