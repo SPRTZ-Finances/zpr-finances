@@ -10,11 +10,11 @@
 
 ## Back-end (api/)
 
-1. The following tutorial was used to come up with the initial REST api
-`https://codebrains.io/build-a-crud-todolist-api-with-spring-5-and-kotlin/`
+1. Tutorial used to come up with the initial REST api can be found [here](https://codebrains.io/build-a-crud-todolist-api-with-spring-5-and-kotlin/)
 
 2. Postgres was installed separately (from `postgres.org`)
 
+    ##### Mac 
     - Install using brew
 
       `brew install postgresql`
@@ -39,8 +39,22 @@
     
     - Add user to DB
     
-      `createdb -O user zprfinance`
+      `createdb -O user zprfinances`
 
+    ##### PC
+    - Download postgres from the [postgres website](https://www.postgresql.org/)
+    - Run executable to install postgres on your machine
+    - In Git Bash run the following:
+        `psql -U postgres`
+    - During the installation, `postgres` is the default superuser created
+    - In a new terminal, use the following to create another superuser:
+    
+        `createuser --interactive --pwprompt -U postgres` 
+    - Say yes to superuser and just do `user` for the user name and `123456` for password
+    - Add user to DB using the following command. THis create and add the newly created user `user` to a database named `zprfinances`.
+    
+          `createdb -U user zprfinances`
+      
 3. The flyway tool was used for data migration
 
    - To migrate 
