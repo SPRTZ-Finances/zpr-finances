@@ -44,8 +44,6 @@
     ##### PC
     - Download postgres from the [postgres website](https://www.postgresql.org/)
     - Run executable to install postgres on your machine
-    - In Git Bash run the following:
-        `psql -U postgres`
     - During the installation, `postgres` is the default superuser created
     - In a new terminal, use the following to create another superuser:
     
@@ -53,7 +51,7 @@
     - Say yes to superuser and just do `user` for the user name and `123456` for password
     - Add user to DB using the following command. THis create and add the newly created user `user` to a database named `zprfinances`.
     
-          `createdb -U user zprfinances`
+        `createdb -U user zprfinances`
       
 3. The flyway tool was used for data migration
 
