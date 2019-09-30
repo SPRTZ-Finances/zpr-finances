@@ -4,6 +4,7 @@
 ### back-end ###
 api/.gradle
 api/build/
+api/src/main/resources/application.properties
 
 ### front-end ###
 frontend/node_modules
