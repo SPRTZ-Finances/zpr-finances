@@ -3,7 +3,7 @@
 
 ## Front-end (frontend/)
 1. The following blog was used to create the React App from scratch
-`https://blog.usejournal.com/creating-a-react-app-from-scraffffffffffftch-f3c693b8465`
+`https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658`
 2. The following repository goes with the blog above
 `https://github.com/paradoxinversion/creating-a-react-app-from-scratch`
 
@@ -58,4 +58,6 @@
    - To migrate 
 
      `./gradlew flywaymigrate -i`
+     
+Note: `application.properties` file is currently in the `.gitignore` due to Tim's postgres issues
 
