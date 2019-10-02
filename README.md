@@ -52,6 +52,10 @@
     - Add user to DB using the following command. THis create and add the newly created user `user` to a database named `zprfinances`.
     
         `createdb -U user zprfinances`
+    
+    - If using MySQL commands to create user and create databases, must specify user as `"user"`
+    when creating `user` as a role or database. If not you will get the usual syntax error's because
+    `user` is a reserved keyword in postgres.
       
 3. The flyway tool was used for data migration
 
@@ -59,5 +63,3 @@
 
      `./gradlew flywaymigrate -i`
      
-Note: `application.properties` file is currently in the `.gitignore` due to Tim's postgres issues
-
