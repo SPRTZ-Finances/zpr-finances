@@ -2,20 +2,27 @@ import React, { Component } from "react";
 import { hot } from "react-hot-loader";
 import axios from 'axios'
 import "./App.css";
-import InputMask from 'react-input-mask';
+// import InputMask from 'react-input-mask';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class App extends Component {
 
     constructor(props) {
         super(props)
+        // this.onFormSubmit = this.onFormSubmit.bind(this)
         this.state = {
             expenses: [],
             title: '',
             description: '',
-            category: ["Food", "Entertainment", "Utilities"],
+            category: 'Food',
             amount: '',
             mask: ''
         }
+        this.formTitle = React.createRef()
+        this.formDescription = React.createRef()
+        this.formCategory = React.createRef()
+        this.formAmount = React.createRef()
     }
 
     componentDidMount() {
@@ -24,10 +31,12 @@ class App extends Component {
                 const expenses = res.data;
                 this.setState({expenses})
             })
+
+
     }
 
 
-    PostExpense = (e) => {
+    onFormSubmit() {
         const { title, description, category, amount } = this.state
         axios.post('http://localhost:8080/expenses', {title, description, category, amount})
 
@@ -36,38 +45,40 @@ class App extends Component {
                 this.setState({expenses})
             })
     }
-
-    onChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+    //
+    handleChange = () => {
+        this.setState({title: this.formTitle.current.value})
+        this.setState({description: this.formDescription.current.value})
+        this.setState({category: this.formCategory.current.value})
+        this.setState({amount: this.formAmount.current.value})
     }
 
     render() {
 
-        const { title, description, category, amount } = this.state
+
 
         return (
-            <form>
-                <input placeholder='TITLE' type="text" name="title" value={title} onChange={this.onChange}/>
-                <input placeholder='DESCRIPTION' type="text" name="description" value={description} onChange={this.onChange}/>
-                    <select placeholder='CATEGORY'>
-                        <option name="Food" value={category[0]}>Food</option>
-                        <option name="Entertainment" value={category[1]}>Entertainment</option>
-                        <option name="Utilities" value={category[2]}>Utilities</option>
-                    </select>
-                <InputMask mask='99.99' placeholder='AMOUNT' type="text" name="amount" value={amount} onChange={this.onChange}/>
-                <button type="submit" onClick={this.PostExpense}>Submit</button>
-                <div>Current Expenses</div>
-                <div>
-                    {this.items = this.state.expenses.map((item, key) =>
-                        <li key={item.id}>
-                            <span className="title">Title: </span>{item.title}
-                            <span className="title">  Description: </span>{item.description}
-                            <span className="title">  Category: </span>{item.category}
-                            <span className="title">  Amount: </span>{item.amount}
-                        </li>
-                    )}
-                </div>
-            </form>
+            <div>
+            <Form>
+                <Form.Group>
+                    <Form.Control ref={this.formTitle} placeholder='TITLE' type="text" onChange={() => this.handleChange()}/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control ref={this.formDescription} placeholder='DESCRIPTION' type="text" name="description" onChange={() => this.handleChange()}/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control ref={this.formCategory} as="select" placeholder='CATEGORY' onChange={() => this.handleChange()}>
+                        <option name="category" value="Food">Food</option>
+                        <option name="category" value="Entertainment">Entertainment</option>
+                        <option name="category" value="Utilities">Utilities</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control ref={this.formAmount} placeholder='AMOUNT' type="number" onChange={() => this.handleChange()}/>
+                </Form.Group>
+                <Button type="submit" color="primary" onClick={() => this.onFormSubmit()}>Submit</Button>
+            </Form>
+            </div>
         );
     }
 }

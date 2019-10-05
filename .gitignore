@@ -1,5 +1,6 @@
 ### Top Level ###
 .idea
+zpr-finances.iml
 
 ### back-end ###
 api/.gradle
