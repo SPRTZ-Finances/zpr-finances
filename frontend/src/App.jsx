@@ -5,6 +5,7 @@ import "./App.css";
 // import InputMask from 'react-input-mask';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import ListExpenses from "./components/ListExpenses";
 
 class App extends Component {
 
@@ -59,25 +60,26 @@ class App extends Component {
 
         return (
             <div>
-            <Form>
-                <Form.Group>
-                    <Form.Control ref={this.formTitle} placeholder='TITLE' type="text" onChange={() => this.handleChange()}/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control ref={this.formDescription} placeholder='DESCRIPTION' type="text" name="description" onChange={() => this.handleChange()}/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control ref={this.formCategory} as="select" placeholder='CATEGORY' onChange={() => this.handleChange()}>
-                        <option name="category" value="Food">Food</option>
-                        <option name="category" value="Entertainment">Entertainment</option>
-                        <option name="category" value="Utilities">Utilities</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control ref={this.formAmount} placeholder='AMOUNT' type="number" onChange={() => this.handleChange()}/>
-                </Form.Group>
-                <Button type="submit" color="primary" onClick={() => this.onFormSubmit()}>Submit</Button>
-            </Form>
+                <Form>
+                    <Form.Group>
+                        <Form.Control ref={this.formTitle} placeholder='TITLE' type="text" onChange={() => this.handleChange()}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control ref={this.formDescription} placeholder='DESCRIPTION' type="text" name="description" onChange={() => this.handleChange()}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control ref={this.formCategory} as="select" placeholder='CATEGORY' onChange={() => this.handleChange()}>
+                            <option name="category" value="Food">Food</option>
+                            <option name="category" value="Entertainment">Entertainment</option>
+                            <option name="category" value="Utilities">Utilities</option>
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control ref={this.formAmount} placeholder='AMOUNT' type="number" onChange={() => this.handleChange()}/>
+                    </Form.Group>
+                    <Button type="submit" color="primary" onClick={() => this.onFormSubmit()}>Submit</Button>
+                </Form>
+                <ListExpenses/>
             </div>
         );
     }
