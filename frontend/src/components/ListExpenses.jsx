@@ -39,7 +39,7 @@ class ListExpenses extends  Component {
                     {
                         this.state.expenses.map(
                             expense =>
-                                <tr>
+                                <tr key={expense.id}>
                                     <td>{expense.title}</td>
                                     <td>{expense.description}</td>
                                     <td>{expense.category}</td>
