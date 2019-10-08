@@ -1,5 +1,7 @@
 import React , {Component} from 'react'
 import axios from "axios";
+import ApiLib from "../ApiLib";
+
 
 class ListExpenses extends  Component {
     constructor(props){
@@ -14,12 +16,10 @@ class ListExpenses extends  Component {
     }
 
     componentDidMount() {
-        //TODO Pull axios calls out into an APILib
-        axios.get('http://localhost:8080/expenses')
-            .then(res  => {
-                const expenses = res.data;
-                this.setState({expenses})
-            })
+       ApiLib.getExpenses().then(value => {
+           const expenses = value.data
+           this.setState({expenses})
+       })
     }
 
     render() {
