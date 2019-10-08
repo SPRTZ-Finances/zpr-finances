@@ -1,7 +1,5 @@
 import React , {Component} from 'react'
-import axios from "axios";
 import ApiLib from "../ApiLib";
-
 
 class ListExpenses extends  Component {
     constructor(props){
@@ -26,7 +24,7 @@ class ListExpenses extends  Component {
         return(
             <>
                 <h1>List Expenses</h1>
-                <table>
+                <table className="table">
                     <thead>
                     <tr>
                         <th>Title</th>

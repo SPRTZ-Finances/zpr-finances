@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
 import axios from 'axios'
+import './bootstrap.css'
 import "./App.css";
 import InputMask from 'react-input-mask';
 import ListExpenses from "./components/ListExpenses";
