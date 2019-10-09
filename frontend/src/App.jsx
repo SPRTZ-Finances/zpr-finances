@@ -13,10 +13,6 @@ class App extends Component {
 
         this.state = {
             expenses: [],
-            title: '',
-            description: '',
-            category: 'Food',
-            amount: '',
             mask: ''
         }
         this.formTitle = React.createRef()
@@ -34,7 +30,11 @@ class App extends Component {
     }
 
     onFormSubmit() {
-        const { title, description, category, amount } = this.state
+        let title = this.formTitle.current.value
+        let category = this.formCategory.current.value
+        let description = this.formDescription.current.value
+        let amount = this.formAmount.current.value
+
         axios.post('http://localhost:8080/expenses', {title, description, category, amount})
 
             .then(res  => {
@@ -43,24 +43,17 @@ class App extends Component {
             })
     }
 
-    handleChange = () => {
-        this.setState({title: this.formTitle.current.value})
-        this.setState({description: this.formDescription.current.value})
-        this.setState({category: this.formCategory.current.value})
-        this.setState({amount: this.formAmount.current.value})
-    }
-
     render() {
         return (
             <div>
-                <input ref={this.formTitle} placeholder='TITLE' type="text" onChange={() => this.handleChange()}/>
-                <input ref={this.formDescription} placeholder='DESCRIPTION' type="text" name="description" onChange={() => this.handleChange()}/>
-                <select ref={this.formCategory} as="select" placeholder='CATEGORY' onChange={() => this.handleChange()}>
+                <input ref={this.formTitle} placeholder='TITLE' type="text"/>
+                <input ref={this.formDescription} placeholder='DESCRIPTION' type="text" name="description" />
+                <select ref={this.formCategory} placeholder='CATEGORY'>
                     <option name="category" value="Food">Food</option>
                     <option name="category" value="Entertainment">Entertainment</option>
                     <option name="category" value="Utilities">Utilities</option>
                 </select>
-                <InputMask mask="99" ref={this.formAmount} placeholder='AMOUNT' type="number" onChange={() => this.handleChange()}/>
+                <InputMask mask="99.99" ref={this.formAmount} placeholder='AMOUNT' />
                 <button type="submit" color="primary" onClick={() => this.onFormSubmit()}>Submit</button>
                 <ListExpenses/>
             </div>
